@@ -3,13 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>1. Data type</artifactId>
+        <artifactId>1.Basic_syntax</artifactId>
         <groupId>org.example</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>3.7. Rectangle sides</artifactId>
+    <artifactId>1.Data_type</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>3.3.Elementary_calculator</module>
+        <module>3.4.Currency_converter</module>
+        <module>3.5.Perfect_weight</module>
+        <module>3.6.Distance_between_two_points</module>
+        <module>3.7.Rectangle_sides</module>
+    </modules>
 
 
 </project>
