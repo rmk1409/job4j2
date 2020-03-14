@@ -23,8 +23,15 @@ public class Converter {
     }
 
     public static void main(String[] args) {
-        int euro = Converter.rubleToEuro(140);
-        System.out.println("140 rubles are " + euro + " euro.");
-        System.out.printf("180 rubles are %d dollars.\n", Converter.rubleToDollar(180));
+        int in = 140;
+        int expected = 2;
+        int out = rubleToEuro(in);
+        boolean passed = expected == out;
+        System.out.println("140 rubles are 2 euros. Test result: " + passed);
+        int in2 = 180;
+        int expected2 = 3;
+        int out2 = rubleToDollar(in2);
+        boolean passed2 = expected2 == out2;
+        System.out.println("180 rubles are 3 dollars. Test result: " + passed2);
     }
 }
