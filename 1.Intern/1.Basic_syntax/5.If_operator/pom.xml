@@ -3,18 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>1.Intern</artifactId>
+        <artifactId>1.Basic_syntax</artifactId>
         <groupId>org.example</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>1.Basic_syntax</artifactId>
+    <artifactId>5.If_operator</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>0.First_program</module>
-        <module>1.Data_type</module>
-        <module>5.If_operator</module>
+        <module>4.0.If_operator</module>
     </modules>
 
 
