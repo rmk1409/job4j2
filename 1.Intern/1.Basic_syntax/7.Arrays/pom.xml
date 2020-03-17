@@ -21,6 +21,7 @@
         <module>6.4.1.Check_last_letters</module>
         <module>6.5.0.Search_index_in_array</module>
         <module>6.5.1.Selection_sort</module>
+        <module>6.6.Matrix</module>
     </modules>
 
 
