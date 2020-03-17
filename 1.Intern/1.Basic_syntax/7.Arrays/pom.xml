@@ -19,6 +19,7 @@
         <module>6.3.Check_mono_array</module>
         <module>6.4.Check_first_letter</module>
         <module>6.4.1.Check_last_letters</module>
+        <module>6.5.0.Search_index_in_array</module>
     </modules>
 
 
