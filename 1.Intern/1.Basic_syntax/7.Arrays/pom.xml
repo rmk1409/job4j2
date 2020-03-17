@@ -23,6 +23,7 @@
         <module>6.5.1.Selection_sort</module>
         <module>6.6.Matrix</module>
         <module>6.7.Game</module>
+        <module>6.8.Remove_duplicates_in_array</module>
     </modules>
 
 
