@@ -39,5 +39,6 @@
     </build>
     <modules>
         <module>6.Exceptions</module>
+        <module>9.Exam</module>
     </modules>
 </project>
