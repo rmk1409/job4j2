@@ -37,9 +37,9 @@ public class SchoolTest {
 
     @Test
     public void list1() {
-        List<Student> expected = List.of(new Student(100, "best"),
+        var expected = List.of(new Student(100, "best"),
                 new Student(90, "some"), new Student(80, "some"), new Student(70, "some"));
-        List<Student> value = School.levelOf(this.students, 60);
+        var value = School.levelOf(this.students, 60);
         assertThat(expected, is(value));
     }
 }
