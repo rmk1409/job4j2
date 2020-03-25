@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -50,5 +51,11 @@ public class SchoolTest {
     public void list3() {
         List<Student> expected = List.of(new Student(40), new Student(30), new Student(20), new Student(10));
         assertThat(expected, is(this.school.collect(this.students, student -> student.getScore() < 50 && student.getScore() > 0)));
+    }
+
+    @Test
+    public void toMap() {
+        Map<String, Student> expected = Map.of("Petrov", new Student(100, "Petrov"), "Ivanov", new Student(200, "Ivanov"));
+        assertThat(expected, is(this.school.collectToMap(List.of(new Student(100, "Petrov"), new Student(200, "Ivanov")))));
     }
 }
