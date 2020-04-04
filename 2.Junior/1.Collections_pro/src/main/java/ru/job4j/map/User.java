@@ -1,9 +1,6 @@
 package ru.job4j.map;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Roman on 04.04.2020
@@ -55,11 +52,16 @@ public class User {
                 + '}';
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, children, birthday);
+    }
+
     public static void main(String[] args) {
         Map<User, Object> map = new HashMap<>();
         Calendar birthday = new GregorianCalendar(1987, Calendar.SEPTEMBER, 14);
         map.put(new User("Alsi", 10, birthday), "First");
         map.put(new User("Alsi", 10, birthday), "Second");
-        System.out.println(map);
+        map.forEach((k, v) -> System.out.printf("%s - %s\n", k, v));
     }
 }
