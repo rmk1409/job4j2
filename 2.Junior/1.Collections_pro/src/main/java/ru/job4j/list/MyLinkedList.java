@@ -115,6 +115,10 @@ public class MyLinkedList<E> implements Iterable<E> {
         };
     }
 
+    public boolean isEmpty() {
+        return this.size == 0;
+    }
+
     private static class Node<E> {
         private E value;
         private Node<E> next;
