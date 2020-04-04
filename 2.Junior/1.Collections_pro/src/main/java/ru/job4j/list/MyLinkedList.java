@@ -42,6 +42,18 @@ public class MyLinkedList<E> implements Iterable<E> {
         }
     }
 
+    public void addFirst(E value) {
+        if (this.size == 0) {
+            this.add(value);
+        } else {
+            this.size++;
+            this.modCount++;
+            Node<E> node = new Node<>(value);
+            node.next = this.first;
+            this.first = node;
+        }
+    }
+
     public E get(int index) {
         if (index < 0 || this.size < index) {
             throw new NoSuchElementException();
@@ -53,6 +65,21 @@ public class MyLinkedList<E> implements Iterable<E> {
                 nodeWithResult = nodeWithResult.next;
             }
             result = nodeWithResult.value;
+        }
+        return result;
+    }
+
+    public E deleteFirst() {
+        if (this.size == 0) {
+            throw new NoSuchElementException();
+        }
+        E result = this.first.value;
+        this.size--;
+        if (size == 0) {
+            this.first = null;
+            this.last = null;
+        } else {
+            this.first = this.first.next;
         }
         return result;
     }
