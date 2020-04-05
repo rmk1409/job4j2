@@ -15,6 +15,22 @@ public class MyTree<E> implements SimpleTree<E> {
     }
 
     @Override
+    public boolean isBinary() {
+        boolean result = true;
+        Queue<Node<E>> data = new LinkedList<>();
+        data.offer(this.root);
+        while (!data.isEmpty()) {
+            Node<E> el = data.poll();
+            if (el.children.size() > 2) {
+                result = false;
+                break;
+            }
+            data.addAll(el.children);
+        }
+        return result;
+    }
+
+    @Override
     public boolean add(E parent, E child) {
         boolean rsl = false;
         Optional<Node<E>> parentNode = this.findBy(parent);
