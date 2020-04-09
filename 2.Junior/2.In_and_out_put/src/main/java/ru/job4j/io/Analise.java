@@ -1,10 +1,11 @@
 package ru.job4j.io;
 
-import java.io.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 /**
  * Задание.
@@ -42,7 +43,7 @@ public class Analise {
      * @param target is file name for analysis
      */
     public void unavailable(String source, String target) throws IOException {
-        List<String> lines = new BufferedReader(new FileReader(source)).lines().collect(Collectors.toList());
+        List<String> lines = Files.readAllLines(Paths.get(source));
         List<String> result = new ArrayList<>();
         String start = "";
         String end;
@@ -53,29 +54,10 @@ public class Analise {
                 start = split[1];
             } else if (!start.isEmpty() && (!Objects.equals(CLIENT_ERROR, errorCode) && !Objects.equals(SERVER_ERROR, errorCode))) {
                 end = split[1];
-                result.add(String.format("%s;%s%n", start, end));
+                result.add(String.format("%s;%s", start, end));
                 start = "";
             }
         }
-        FileWriter fileWriter = new FileWriter(target);
-        result.forEach(i -> {
-            try {
-                fileWriter.write(i);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-//        Files.write(Paths.get(target), result);
-        fileWriter.close();
-    }
-
-    public static void main(String[] args) {
-        String path = Analise.class.getResource("/").getPath();
-        try (PrintWriter out = new PrintWriter(new FileOutputStream(path + "unavailable.csv"))) {
-            out.println("15:01:30;15:02:32");
-            out.println("15:10:30;23:12:32");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Files.write(Paths.get(target), result);
     }
 }
