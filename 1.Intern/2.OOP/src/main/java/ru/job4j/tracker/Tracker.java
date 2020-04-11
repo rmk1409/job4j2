@@ -1,12 +1,13 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
  * Created by Roman Pogorelov on 17.03.2020
  */
-public class Tracker {
+public class Tracker implements ITracker {
     /**
      * Массив для хранения заявок.
      */
@@ -62,15 +63,13 @@ public class Tracker {
      *
      * @return array with not null items.
      */
-    public Item[] findAll() {
-        Item[] result = new Item[this.position];
-        int size = 0;
+    public List<Item> findAll() {
+        List<Item> result = new ArrayList<>();
         for (Item item : this.items) {
             if (item != null) {
-                result[size++] = item;
+                result.add(item);
             }
         }
-        result = Arrays.copyOf(result, size);
         return result;
     }
 
@@ -80,15 +79,13 @@ public class Tracker {
      * @param name is used to search.
      * @return array with items.
      */
-    public Item[] findByName(String name) {
-        Item[] result = new Item[position];
-        int size = 0;
+    public List<Item> findByName(String name) {
+        List<Item> result = new ArrayList<>();
         for (Item item : this.findAll()) {
             if (name.equals(item.getName())) {
-                result[size++] = item;
+                result.add(item);
             }
         }
-        result = Arrays.copyOf(result, size);
         return result;
     }
 
@@ -98,7 +95,7 @@ public class Tracker {
      * @param id is used to search.
      * @return whether success or not.
      */
-    public boolean deleteItemById(String id) {
+    public boolean delete(String id) {
         boolean result = false;
         for (int i = 0; i < this.position; i++) {
             if (id.equals(this.items[i].getId())) {
@@ -121,7 +118,7 @@ public class Tracker {
      * @param newItem is used to search.
      * @return whether there is success or not.
      */
-    public boolean editItemById(String id, Item newItem) {
+    public boolean replace(String id, Item newItem) {
         boolean result = false;
         for (int i = 0; i < this.position; i++) {
             if (id.equals(this.items[i].getId())) {

@@ -1,7 +1,7 @@
 package ru.job4j.tracker.action;
 
+import ru.job4j.tracker.ITracker;
 import ru.job4j.tracker.Input;
-import ru.job4j.tracker.Tracker;
 
 /**
  * Created by Roman Pogorelov on 24.03.2020
@@ -9,5 +9,5 @@ import ru.job4j.tracker.Tracker;
 public interface UserAction {
     String name();
 
-    boolean execute(Input input, Tracker tracker);
+    boolean execute(Input input, ITracker tracker);
 }

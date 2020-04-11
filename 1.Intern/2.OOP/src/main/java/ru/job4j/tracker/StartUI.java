@@ -6,7 +6,7 @@ import ru.job4j.tracker.action.*;
  * Created by Roman Pogorelov on 17.03.2020
  */
 public class StartUI {
-    public void init(Input input, Tracker tracker, UserAction[] actions) {
+    public void init(Input input, ITracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
@@ -26,7 +26,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         Input input = new ValidateInput(new ConsoleInput());
-        Tracker tracker = new Tracker();
+        ITracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(),
                 new FindAllAction(),
