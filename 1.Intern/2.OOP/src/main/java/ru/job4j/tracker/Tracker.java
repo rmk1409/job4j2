@@ -37,8 +37,8 @@ public class Tracker implements ITracker {
      *
      * @return Уникальный ключ.
      */
-    private String generateId() {
-        return String.valueOf(System.currentTimeMillis() + new Random().nextLong());
+    private Long generateId() {
+        return System.currentTimeMillis() + new Random().nextLong();
     }
 
     /**
@@ -47,7 +47,7 @@ public class Tracker implements ITracker {
      * @param id is used to search.
      * @return item or null.
      */
-    public Item findById(String id) {
+    public Item findById(Long id) {
         Item result = null;
         for (Item item : this.findAll()) {
             if (id.equals(item.getId())) {
@@ -95,7 +95,7 @@ public class Tracker implements ITracker {
      * @param id is used to search.
      * @return whether success or not.
      */
-    public boolean delete(String id) {
+    public boolean delete(Long id) {
         boolean result = false;
         for (int i = 0; i < this.position; i++) {
             if (id.equals(this.items[i].getId())) {
@@ -118,7 +118,7 @@ public class Tracker implements ITracker {
      * @param newItem is used to search.
      * @return whether there is success or not.
      */
-    public boolean replace(String id, Item newItem) {
+    public boolean replace(Long id, Item newItem) {
         boolean result = false;
         for (int i = 0; i < this.position; i++) {
             if (id.equals(this.items[i].getId())) {

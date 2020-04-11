@@ -4,18 +4,18 @@ package ru.job4j.tracker;
  * Created by Roman Pogorelov on 17.03.2020
  */
 public class Item {
-    private String id;
+    private Long id;
     private String name;
 
     public Item(String name) {
         this.name = name;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

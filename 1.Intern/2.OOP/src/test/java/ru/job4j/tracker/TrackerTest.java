@@ -69,7 +69,7 @@ public class TrackerTest {
         tracker.add(item);
         tracker.add(item2);
         tracker.add(item3);
-        assertFalse(tracker.delete(""));
+        assertFalse(tracker.delete(-1L));
         assertThat(tracker.findAll(), is(List.of(item, item2, item3)));
     }
 
@@ -96,7 +96,7 @@ public class TrackerTest {
         tracker.add(item);
         tracker.add(item2);
         tracker.add(item3);
-        assertFalse(tracker.replace("", new Item("test4")));
+        assertFalse(tracker.replace(-1L, new Item("test4")));
         assertThat(tracker.findAll(), is(List.of(item, item2, item3)));
     }
 
