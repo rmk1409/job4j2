@@ -1,4 +1,4 @@
-create database service_ticket;
+create database tracker;
 
 create table rule
 (
